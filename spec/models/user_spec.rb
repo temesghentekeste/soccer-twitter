@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :username }
     it { should validate_presence_of :email }
     it { should validate_presence_of :password }
-    # it { should validate_presence_of :photo }
-    # it { should validate_presence_of :cover_image }
+    it { should validate_presence_of :photo }
+    it { should validate_presence_of :cover_image }
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_uniqueness_of(:username).case_insensitive }
     
@@ -31,12 +31,10 @@ RSpec.describe User, type: :model do
   describe 'invalid user if files are not attached' do
 
     it 'attaches the uploaded file' do
-      @invitor = FactoryBot.create(:user)
-      p @invitor
-      p @invitor
-      expect(@invitor.valid?).to be true
-      expect(@invitor.photo).to be_attached
-      expect(@invitor.cover_image).to be_attached
+      @user = FactoryBot.create(:user)
+      expect(@user.valid?).to be true
+      expect(@user.photo).to be_attached
+      expect(@user.cover_image).to be_attached
     end
   end
 end
