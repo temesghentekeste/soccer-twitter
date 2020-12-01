@@ -42,8 +42,6 @@ RSpec.describe User, type: :model do
       file = fixture_file_upload(file_path, 'image/jpeg')
       @user.photo.attach(file)
       expect(@user.valid?).to be false
-
     end
   end
-  
 end
