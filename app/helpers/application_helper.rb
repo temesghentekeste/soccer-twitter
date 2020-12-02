@@ -10,4 +10,20 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def member_or_guest_homepage
+    if user_signed_in?
+      render '/pages/welcome'
+    else
+      render '/pages/guest_welcome'
+    end
+  end
+
+  def member_or_guest_content
+    if user_signed_in?
+      render '/pages/member_content'
+    else
+      render '/pages/guest_content'
+    end
+  end
 end

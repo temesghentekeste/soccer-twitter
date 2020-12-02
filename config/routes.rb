@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  get '/welcome', to:'pages#welcome'
+  # get '/welcome', to:'pages#welcome'
 end
