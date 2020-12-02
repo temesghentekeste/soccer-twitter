@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def member_or_guest_homepage
     if user_signed_in?
-      render '/pages/welcome'
+      render '/pages/member_content'
     else
       render '/pages/guest_welcome'
     end

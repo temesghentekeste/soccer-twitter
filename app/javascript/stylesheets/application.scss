@@ -1,5 +1,5 @@
 $body-bg: #E7ECEF;
- $theme-colors: (
+$theme-colors: (
   "primary": #1DA1F2,
   "secondary": #213246,
   "success": #015668,
@@ -7,7 +7,7 @@ $body-bg: #E7ECEF;
   "warning": rgb(12, 140, 144),
   "danger": #ff0000,
   "light": #ececec,
-  "dark": #222222
+  "dark": #6c8297
 );
 @import '~bootstrap/scss/bootstrap';
 
@@ -19,6 +19,26 @@ body {
   background: rgb(175, 177, 179);
   background: linear-gradient(90deg, rgb(221, 225, 226) 5%, rgb(218, 220, 223) 53%, rgba(77, 74, 77, 0.322) 76%);
   border-radius: 3%;
+}
+
+.profile-photo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.left-sidebar {
+  min-height: 100vh;
+}
+
+.top-nav {
+  height: 80px;
+}
+
+
+
+.nav-link-custom {
+  color: map_get($theme-colors, 'dark');
 }
 
 .links {
@@ -36,4 +56,11 @@ body {
       color: rgb(32, 20, 20);
     }
   }
+}
+
+.nav-link-custom:hover,
+.user-action-link:hover {
+  background-color: map_get($theme-colors, 'primary');
+  color: white;
+  text-decoration: none;
 }
