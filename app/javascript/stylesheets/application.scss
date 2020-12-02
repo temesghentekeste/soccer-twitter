@@ -1,0 +1,16 @@
+$body-bg: #E7ECEF;
+ $theme-colors: (
+  "primary": #1DA1F2,
+  "secondary": #213246,
+  "success": #015668,
+  "info": #0F81C7,
+  "warning": rgb(12, 140, 144),
+  "danger": #ff0000,
+  "light": #ececec,
+  "dark": #222222
+);
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
