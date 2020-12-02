@@ -1,0 +1,17 @@
+<section>
+  <div>
+    <div>
+      <%= @user.username %>
+      <%= image_tag(@user.photo) %>
+
+    </div>
+    <h2><%= @user.full_name %></h2>
+    <p>
+    <%= image_tag(@user.cover_image) %>
+    </p>
+  </div>
+  <div>
+      <%= link_to 'Edit Your Profile', edit_user_registration_path(current_user) %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  </div>
+</section>
