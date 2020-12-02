@@ -14,3 +14,26 @@ $body-bg: #E7ECEF;
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.signin-form {
+  background: rgb(175, 177, 179);
+  background: linear-gradient(90deg, rgb(221, 225, 226) 5%, rgb(218, 220, 223) 53%, rgba(77, 74, 77, 0.322) 76%);
+  border-radius: 3%;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+
+  a {
+    margin-right: 1rem;
+    font-weight: bold;
+    border: none;
+
+    &:hover {
+      background: #bcbdc5;
+      padding: 5px 10px;
+      color: rgb(32, 20, 20);
+    }
+  }
+}
