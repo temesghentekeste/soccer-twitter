@@ -1,0 +1,19 @@
+<section class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-sm-5 mt-4 mr-4">
+      <div class="text-primary">
+        <h2 class="font-weight-bold">Welcome to Soccer Twitter</h2>
+        <p class="guest-text">Connect with soccer buddies. Share your opinion succintly and eloquently. Just like exhilarating and exciting viewpoints.</p>
+        <ul class="links px-0">
+          <%= render 'shared/guest_homepage_actions' %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-5 mt-2 signin-form p-4">
+    <%= image_tag("soccer.jpeg", {:style => "width:100%;"}) if controller_name == 'pages'%>
+      <%= yield %>
+    </div>
+  </div>
+</section>
+

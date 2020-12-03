@@ -1,0 +1,15 @@
+<div class="container mt-2">
+ <div class="row">
+    <div class="col-12 mt-2 ">
+      <% flash.each do |name, msg| %>
+          <% if name == 'alert' && msg[0] == "Text can't be blank" %>
+            <% msg = "Your soccer tweet can't be blank"%>
+          <% end %>
+          <%= flash_message(name)%>
+          <a href="#" class="close" data-dismiss="alert">&#215;</a>
+          <%= content_tag :div, msg, :class => "flash-message", :id => "flash_#{name} if msg.is_a?(String)" %>
+        </div>
+      <% end %>
+    </div>
+ </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid bg-white">
+ <div class="row">
+  <aside class="col-md-2 bg-secondary text-white left-sidebar">
+    <div class="user-info p-3 border-bottom">
+      <%= user_avatar(current_user.id) %>   
+      <span class="ml-2 font-weight-bold"><%= current_user.full_name%></span>
+    </div>
+
+    <div class="following d-flex justify-content-between text-center py-4 font-weight-bold border-bottom">
+      <div class="following-count mr-2 ">
+        <span class="large-font d-block"><%= current_user.following.count %></span> 
+        <span>Following</span> 
+      </div>
+      <div class="followers-count">
+        <span class="large-font d-block"><%= current_user.followers.count %></span> 
+        <span>Following</span> 
+      </div>
+    </div>
+
+    <div class="user-action-links">
+      <div class="user-action-link d-flex align-items-center">
+          <i class="fas fa-home mx-2"></i>
+        <%= link_to 'HOME', home_path, class: 'nav-link nav-link-custom' %>        
+      </div>
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-user-circle mx-2"></i>
+        <a class="nav-link nav-link-custom" href="/profile">PROFILE</a>
+      </div>
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-power-off mx-2"></i>
+        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-custom' %>        
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-md-10 main-section text-white px-0">
+    <div>
+      <%= render '/pages/top_nav' %>
+    </div>
+    <div class="main-content"> 
+      <%= render 'layouts/messages' %> 
+      <%= yield %>      
+    </div>
+  </section>
+ </div>
+</div>
