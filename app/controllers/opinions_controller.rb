@@ -11,7 +11,6 @@ class OpinionsController < ApplicationController
       flash[:notice] = 'Your soccer tweet was successfully created'
       redirect_to home_path
     else
-      # byebug
       redirect_to home_path, alert: @opinion.errors.full_messages
     end
   end

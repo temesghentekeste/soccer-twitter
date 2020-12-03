@@ -1,7 +1,7 @@
 <div class="home-content ml-3">
   <div class="row top-home text-muted text-uppercase justify-content-between border-bottom">
     <div class="col-sm-9 border-right py-3">
-      <h5 class="font-weight-bold">Soccer Twitter</h5>
+      <h5 class="font-weight-bolder">Soccer Twitter</h5>
     </div>
     <div class=" col-sm-3 py-3 px-2 text-center">
       <h5 class=" font-weight-bold">Who To Follow</h5>
@@ -23,6 +23,25 @@
                   <div class="input-group"> 
                     <%= f.text_field :text, autofocus: true, class: "form-control" %>
                     <%= f.submit "Add Tweet", class:'btn-dark py-1' %>                 
+                  </div>
+              <% end %>
+            </div>
+            <div class="card text-muted p-3 mt-3">
+              <h5 class="card-title border-bottom py-2 font-weight-bold">Soccer Tweets</h5>
+              <% @opinions.each do |opinion| %>
+                  <div class="card border-bottom">
+                    <div class="card-body d-flex align-items-center">
+                      <div class="user-info p-3">
+                        <%= user_avatar(opinion.author.id) %>   
+                      </div>
+                      <div>
+                        <span class="font-weight-bold"><%= current_user.full_name%></span><br>
+                        <%= opinion.text%>
+                        <small>
+                          <%= time_ago_in_words(opinion.created_at)%> ago 
+                        </small>
+                      </div>
+                    </div>
                   </div>
               <% end %>
             </div>

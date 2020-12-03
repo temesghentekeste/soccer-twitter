@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @opinion = Opinion.new
-    # @posts = Post.order('created_at DESC').includes(:user, :likes).limit(10)
+    @opinions = current_user.opinions.includes(:author).limit(10)
     # @not_following = User.all - current_user.following
   end
 end
