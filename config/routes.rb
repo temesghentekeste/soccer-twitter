@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   resources :opinions
 
+  get '/home' => "pages#home", :as => :user_root
+
 
   resources :users, only: [:index, :show]
 

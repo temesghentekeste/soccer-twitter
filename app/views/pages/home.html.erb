@@ -3,8 +3,8 @@
     <div class="col-sm-9 border-right py-3">
       <h5 class="font-weight-bolder">Soccer Twitter</h5>
     </div>
-    <div class=" col-sm-3 py-3 px-2 text-center">
-      <h5 class=" font-weight-bold">Who To Follow</h5>
+    <div class=" col-sm-3 py-3 px-3">
+      <h6 class=" font-weight-bold">Who To Follow</h6>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
             <div class="card text-muted p-3 mt-3">
               <h5 class="card-title border-bottom py-2 font-weight-bold">Soccer Tweets</h5>
               <% @opinions.each do |opinion| %>
-                  <div class="card border-bottom">
+                  <div class="card border-bottom mb-2">
                     <div class="card-body d-flex align-items-center">
                       <div class="user-info p-3">
                         <%= user_avatar(opinion.author.id) %>   
@@ -48,7 +48,16 @@
           </div>
         </div>
         <div class="col-sm-3 text-muted">
-          Who To Follow List
+          <% @to_follow.each do |follow| %>
+            <div class="user-info p-3">
+              <%= user_avatar(follow.id) %> 
+              <span class="font-weight-bold"><%= current_user.username%></span><br>
+              <div>
+                <span>Followers: 0</span>
+                <span>Following: 0</span>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
   </div>

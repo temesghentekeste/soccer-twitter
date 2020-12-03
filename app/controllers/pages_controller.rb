@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   def home
     @opinion = Opinion.new
     @opinions = current_user.opinions.includes(:author).limit(10)
-    # @not_following = User.all - current_user.following
+    @to_follow = User.all - current_user.following
   end
 end
