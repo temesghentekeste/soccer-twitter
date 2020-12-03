@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     
   end
 
+  def profile 
+    @user = User.includes(:opinions).find_by(username: params[:username])
+  end
+
   private 
   def set_initial_values
     if user_signed_in?
