@@ -35,10 +35,17 @@ body {
   height: 80px;
 }
 
-
+.opinion-body {
+  min-height: 100vh;
+  padding: 1rem 2rem;;
+}
 
 .nav-link-custom {
   color: map_get($theme-colors, 'dark');
+}
+
+.alert-success-custom {
+  background: #5cb85c;
 }
 
 .links {

@@ -1,0 +1,36 @@
+<div class="home-content ml-3">
+  <div class="row top-home text-muted text-uppercase justify-content-between border-bottom">
+    <div class="col-sm-9 border-right py-3">
+      <h5 class="font-weight-bold">Soccer Twitter</h5>
+    </div>
+    <div class=" col-sm-3 py-3 px-2 text-center">
+      <h5 class=" font-weight-bold">Who To Follow</h5>
+    </div>
+  </div>
+
+  <div class="main-home">
+   
+      <div class="row py-0 my-0">
+        <div class="col-sm-9 border-right opinion-body">
+          <div class="ml-5">
+            <%= render "shared/errors", obj: @opinion %>
+            
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <%= form_for(@opinion) do |f| %>
+                  <p class="text-secondary">TWEET SOMETHING ...</p> 
+                  <div class="input-group"> 
+                    <%= f.text_field :text, autofocus: true, class: "form-control" %>
+                    <%= f.submit "Add Tweet", class:'btn-dark py-1' %>                 
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 text-muted">
+          Who To Follow List
+        </div>
+      </div>
+  </div>
+</div>

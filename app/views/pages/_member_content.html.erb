@@ -20,7 +20,7 @@
     <div class="user-action-links">
       <div class="user-action-link d-flex align-items-center">
           <i class="fas fa-home mx-2"></i>
-          <a class="nav-link nav-link-custom" href="/home">HOME </a>
+        <%= link_to 'HOME', home_path, class: 'nav-link nav-link-custom' %>        
       </div>
       <div class="user-action-link d-flex align-items-center">
         <i class="fas fa-user-circle mx-2"></i>
@@ -37,7 +37,8 @@
     <div>
       <%= render '/pages/top_nav' %>
     </div>
-    <div class="main-content">  
+    <div class="main-content"> 
+      <%= render 'layouts/messages' %> 
       <%= yield %>      
     </div>
   </section>
