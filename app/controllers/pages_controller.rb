@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @opinion = Opinion.new
       @opinions = current_user.opinions.includes(:author).limit(10)
-      @to_follow = User.all - current_user.following
+      @to_follow = User.where.not(id: current_user.id)- current_user.following 
     end
   end
 end
