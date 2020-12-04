@@ -1,4 +1,6 @@
 $body-bg: #E7ECEF;
+$custom-btn: #b2d5e9;
+
 $theme-colors: (
   "primary": #1DA1F2,
   "secondary": #213246,
@@ -22,8 +24,8 @@ body {
 }
 
 .profile-photo {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
@@ -52,10 +54,32 @@ body {
   margin-top: -0.5rem;
 }
 
+.btn-custom {
+  width: 100px;
+  background: #fff;
+  border-color: map_get($theme-colors, 'primary');
+  color: map_get($theme-colors, 'primary');
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 8px;
+  &:hover {
+    background: $custom-btn;
+  }
+
+}
+
 .profile-banner {
+  position: relative;
+  margin-bottom: 2rem;
   .cover-image {
     width: 100%;
     height: 237px;
+  }
+  .user-follow {
+    width: 100%;
+    position: absolute;
+    top: 215px;
+    left: 30px;
   }
 }
 

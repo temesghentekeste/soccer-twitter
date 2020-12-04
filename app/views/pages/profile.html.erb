@@ -2,16 +2,12 @@
   <div class="row">
     <div class="col-sm-8 banner-col p-0">
       <div class="profile-banner">
-        <%= user_banner(@user.id) %>   
+        <%= user_banner(@user.id) %> 
+        <%= follow_user_action @user%>  
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="user-info p-3 border-bottom text-center">
-        <%= user_avatar(@user.id) %>   
-        <p class="mt-1 mb-0 font-weight-bold text-muted"><%= @user.full_name%></p>
-        <p class="mt-0 text-muted">@<%= @user.username%></p>
-      </div>
-
+    <div class="col-sm-4 pt-2">
+      <%= render 'profile_info_sub', user: @user%>
       <div class="following d-flex justify-content-around text-center py-4 border-bottom text-muted">
         <div class="following-count mr-2 ">
           <span class="large-font d-block"><%= @user.opinions.count %></span> 
@@ -28,11 +24,10 @@
         </div>
       </div>
     </div>
-  
   </div>
 </div>
 
-<div class="container-fluid main-home">
+<div class="container-fluid main-home mt-5">
   <div class="row py-0 my-0">
     <div class="col-sm-8 border-right opinion-body">
       <div class="ml-5">

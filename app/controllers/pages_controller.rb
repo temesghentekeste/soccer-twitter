@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def profile 
     @user = User.includes(:opinions).find_by(username: params[:username])
+    @following = Following.new
   end
 
   private 

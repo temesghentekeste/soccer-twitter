@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   get 'profile/:username', to: 'pages#profile', as: :profile
 
-  # get '/welcome', to:'pages#welcome'
+  resources :followings
 end

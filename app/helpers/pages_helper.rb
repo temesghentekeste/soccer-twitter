@@ -32,4 +32,11 @@ module PagesHelper
       render 'pages/no_followings'
     end
   end
+
+  def follow_user_action(user)
+    if user != current_user
+      render 'pages/follow_user', user: user
+    
+    end
+  end
 end
