@@ -1,11 +1,13 @@
 $body-bg: #E7ECEF;
+$custom-btn: #b2d5e9;
+
 $theme-colors: (
   "primary": #1DA1F2,
   "secondary": #213246,
   "success": #015668,
   "info": #0F81C7,
   "warning": rgb(12, 140, 144),
-  "danger": #ff0000,
+  "danger": #e24040,
   "light": #ececec,
   "dark": #6c8297
 );
@@ -22,8 +24,8 @@ body {
 }
 
 .profile-photo {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
@@ -48,6 +50,59 @@ body {
   background: #5cb85c;
 }
 
+.profile-container {
+  margin-top: -0.5rem;
+}
+
+.btn-custom {
+  width: 100px;
+  background: #fff;
+  border-color: map_get($theme-colors, 'primary');
+  color: map_get($theme-colors, 'primary');
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 8px;
+
+  &:hover {
+    background: $custom-btn;
+  }
+
+  &_following {
+    width: 110px;
+  }
+
+  &_following:hover {
+    background: map_get($theme-colors, 'danger');
+    border-color: none;
+
+    span {
+      display:none;
+    }
+
+    &:before {
+      content:"unfollow";
+      color: #fff;
+    }
+  }
+
+
+}
+
+.profile-banner {
+  position: relative;
+  margin-bottom: 2rem;
+  .cover-image {
+    width: 100%;
+    height: 237px;
+  }
+  .user-follow {
+    width: 100%;
+    position: absolute;
+    top: 215px;
+    left: 30px;
+  }
+}
+
 .links {
   display: flex;
   list-style: none;
@@ -70,4 +125,21 @@ body {
   background-color: map_get($theme-colors, 'primary');
   color: white;
   text-decoration: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: map_get($theme-colors, 'dark');
+  background-color: transparent;
+  border-color: transparent transparent #3f3e3e;
+  border-bottom: 4px solid !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: map_get($theme-colors, 'dark');
+  font-size: 20px;
 }

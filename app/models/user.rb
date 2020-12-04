@@ -9,6 +9,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   
   validates :full_name, presence: true, length: { maximum: 50 }
+  default_scope { order(created_at: :desc) }
 
   has_one_attached :photo, dependent: :destroy
   has_one_attached :cover_image, dependent: :destroy

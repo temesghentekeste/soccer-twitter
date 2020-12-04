@@ -1,0 +1,90 @@
+<div class="container-fluid profile-container">
+  <div class="row">
+    <div class="col-sm-8 banner-col p-0">
+      <div class="profile-banner">
+        <%= user_banner(@user.id) %> 
+        <%= follow_user_action @user%>  
+      </div>
+    </div>
+    <div class="col-sm-4 pt-2">
+      <%= render 'profile_info_sub', user: @user%>
+      <div class="following d-flex justify-content-around text-center py-4 border-bottom text-muted">
+        <div class="following-count mr-2 ">
+          <span class="large-font d-block"><%= @user.opinions.count %></span> 
+          <span>Tweets</span> 
+        </div>
+        <div class="followers-count">
+          <span class="large-font d-block"><%= @user.following.count %></span> 
+          <span>Following</span> 
+        </div>
+
+        <div class="followers-count">
+          <span class="large-font d-block"><%= current_user.followers.count %></span> 
+          <span>Followers</span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid main-home mt-5">
+  <div class="row py-0 my-0">
+    <div class="col-sm-8 border-right opinion-body">
+      <div class="ml-5">
+        <%= render "shared/errors", obj: @opinion %>
+      </div>
+      <div class="card">
+        <div class="card-body mx-2 border-bottom">
+          <%= form_for(@opinion) do |f| %>
+              <p class="text-secondary">TWEET SOMETHING ...</p> 
+              <div class="input-group"> 
+                <%= f.text_field :text, autofocus: true, class: "form-control" %>
+                <%= f.submit "Add Tweet", class:'btn-dark py-1' %>                 
+              </div>
+          <% end %>
+        </div>
+        <div class="card text-muted p-3 mt-3 mx-2 border-0">
+          <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets from <%= @user.full_name %></h5>
+          <% @opinions.each do |opinion| %>
+              <div class="card border-0 mb-0">
+                <div class="card-body d-flex align-items-center">
+                  <div class="user-info">
+                    <%= user_avatar(opinion.author.id) %>   
+                  </div>
+                  <div>
+                    <span class="font-weight-bold"><%= current_user.full_name%></span><br>
+                    <%= opinion.text%>
+                    <small>
+                      <%= time_ago_in_words(opinion.created_at)%> ago 
+                    </small>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-muted">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 ">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Followers</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Following</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <%= followers @user%>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <%= followings @user%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
