@@ -17,6 +17,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 require("bootstrap")
 import "../stylesheets/application";
+require("../includes/vote.js");
 document.addEventListener("turbolinks:load", function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

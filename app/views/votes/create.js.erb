@@ -1,0 +1,67 @@
+
+var parentNode = document.querySelector("#vote-actions-<%=@opinion.id%>")
+var score = parentNode.querySelector('.score')
+var scoreAmount=<%=@opinion.score%>
+score.innerHTML=scoreAmount
+
+var upvote = parentNode.querySelector('.upvote')
+var downvote = parentNode.querySelector('.downvote')
+
+if(upvote.classList.contains('active')){
+  upvote.classList.remove("active");
+}
+
+if(downvote.classList.contains('active')){
+  downvote.classList.remove("active");
+}
+
+var isUpvote = <%= @is_upvote %>
+var isNewVote = <%= @is_new_vote %>
+
+if(isNewVote){
+  if(isUpvote) {
+    console.log('upvoted', isUpvote)
+    upvote.classList.add("active");
+  }else {
+    console.log('downvoted', isUpvote)
+    downvote.classList.add("active");
+  } 
+}
+
+if(scoreAmount == 0){
+  if(score.classList.contains('bg-primary-vote')){
+    score.classList.remove("bg-primary-vote");
+  }
+
+  if(score.classList.contains('bg-danger')){
+    score.classList.remove("bg-danger");
+  }
+
+  score.classList.add("bg-success");
+
+} else if(scoreAmount > 0){
+  if(score.classList.contains('bg-success')){
+    score.classList.remove("bg-success");
+  }
+
+  if(score.classList.contains('bg-danger')){
+    score.classList.remove("bg-danger");
+  }
+
+  score.classList.add("bg-primary-vote");
+
+} else {
+  if(score.classList.contains('bg-success')){
+    score.classList.remove("bg-success");
+  }
+
+  if(score.classList.contains('bg-primary-vote')){
+    score.classList.remove("bg-primary-vote");
+  }
+
+  score.classList.add("bg-danger");
+}
+
+
+
+

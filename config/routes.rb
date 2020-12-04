@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#index"
   get '/home', to: 'pages#home'
   resources :opinions
+  post "opinion/vote" => "votes#create"
+
   
   get '/home' => "pages#home", :as => :user_root
   
