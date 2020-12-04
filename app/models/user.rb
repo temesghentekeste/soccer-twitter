@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_followings, source: :followed
   has_many :followers, through: :passive_followings, source: :follower
 
+  has_many :votes
+
   def follow(other)
     active_followings.create!(followed_id: other.id)
   end
@@ -36,5 +38,13 @@ class User < ApplicationRecord
 
   def following?(other)
     following.include?(other)
+  end
+
+  def upvoted_opinion_ids
+    self.votes.where(upvote: true).pluck(:opinion_id)
+  end
+
+  def downvoted_opinion_ids
+    self.votes.where(upvote: false).pluck(:opinion_id)
   end
 end
