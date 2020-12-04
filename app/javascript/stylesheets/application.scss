@@ -7,7 +7,7 @@ $theme-colors: (
   "success": #015668,
   "info": #0F81C7,
   "warning": rgb(12, 140, 144),
-  "danger": #ff0000,
+  "danger": #e24040,
   "light": #ececec,
   "dark": #6c8297
 );
@@ -62,9 +62,29 @@ body {
   font-weight: bold;
   border-radius: 15px;
   padding: 6px 8px;
+
   &:hover {
     background: $custom-btn;
   }
+
+  &_following {
+    width: 110px;
+  }
+
+  &_following:hover {
+    background: map_get($theme-colors, 'danger');
+    border-color: none;
+
+    span {
+      display:none;
+    }
+
+    &:before {
+      content:"unfollow";
+      color: #fff;
+    }
+  }
+
 
 }
 

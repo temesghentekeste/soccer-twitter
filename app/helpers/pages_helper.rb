@@ -34,9 +34,12 @@ module PagesHelper
   end
 
   def follow_user_action(user)
-    if user != current_user
+    followings = current_user.following
+    if user != current_user && !followings.include?(user)
       render 'pages/follow_user', user: user
-    
+    elsif followings.include? (user)
+      following = Following.find_by(follower_id: current_user.id, followed_id: @user.id)
+      render 'pages/unfollow_user', { user: user, following: following }
     end
   end
 end

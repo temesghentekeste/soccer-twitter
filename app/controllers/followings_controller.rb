@@ -2,9 +2,20 @@ class FollowingsController < ApplicationController
   def create 
     following = Following.new(followings_params)
     following.follower_id = current_user.id
+    followed = User.find(following.followed_id)
     if following.save
-      redirect_to profile_path(current_user.username)
+      flash[:notice] = "You have successfully followed #{followed.full_name}"
+      redirect_to request.referrer
     end
+  end
+  
+  def destroy
+    @following = Following.find(params[:id])
+    followed = User.find(@following.followed_id)
+    @following.destroy
+    flash[:alert] = "You have successfully unfollowed #{followed.full_name}"
+    redirect_to request.referrer
+
   end
 
   private 
