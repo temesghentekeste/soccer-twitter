@@ -1,0 +1,9 @@
+<div class="card-body mx-2 border-bottom">
+  <%= form_for(@opinion) do |f| %>
+      <p class="text-secondary">TWEET SOMETHING ...</p> 
+      <div class="input-group"> 
+        <%= f.text_field :text, autofocus: true, class: "form-control" %>
+        <%= f.submit "Add Tweet", class:'btn-dark py-1' %>                 
+      </div>
+  <% end %>
+</div>
