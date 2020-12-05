@@ -14,7 +14,7 @@ $theme-colors: (
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .signin-form {
@@ -24,8 +24,8 @@ body {
 }
 
 .profile-photo {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
 }
 
@@ -56,6 +56,7 @@ body {
 
 .votes-container {
   width: 250px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .upvote-text {

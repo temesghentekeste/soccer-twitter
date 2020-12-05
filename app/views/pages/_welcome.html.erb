@@ -21,22 +21,13 @@
          
         <div class="card text-muted p-3 mt-3 mx-2 border-0">
           <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets from <%= current_user.full_name %></h5>
-          <%= render 'opinions/list'%>
+          <%= render 'opinions/list', obj: @opinions%>
         </div>
       </div>
         </div>
         <div class="col-sm-3 text-muted">
           <% @to_follow.each do |follow| %>
-            <%= link_to profile_path(follow.username), :class => "text-decoration-none text-muted" do %>
-              <div class="user-info p-3">
-                <%= user_avatar(follow.id) %> 
-                <span class="font-weight-bold"><%= follow.username%></span><br>
-                <div class="border-bottom py-1">
-                  <span>Followers: 0</span>
-                  <span>Following: 0</span>
-                </div>
-              </div>
-            <% end %>
+            <%= render 'follow_user_with_link', follow: follow%>
           <% end %>
         </div>
       </div>

@@ -1,12 +1,12 @@
 <div class="container-fluid profile-container">
   <div class="row">
-    <div class="col-sm-8 banner-col p-0">
+    <div class="col-sm-9 banner-col p-0">
       <div class="profile-banner">
         <%= user_banner(@user.id) %> 
         <%= follow_user_action @user%>  
       </div>
     </div>
-    <div class="col-sm-4 pt-2">
+    <div class="col-sm-3 pt-2">
       <%= render 'profile_info_sub', user: @user%>
       <div class="following d-flex justify-content-around text-center py-4 border-bottom text-muted">
         <div class="following-count mr-2 ">
@@ -29,19 +29,19 @@
 
 <div class="container-fluid main-home mt-5">
   <div class="row py-0 my-0">
-    <div class="col-sm-8 border-right opinion-body">
+    <div class="col-sm-9 border-right opinion-body">
       <div class="ml-5">
         <%= render "shared/errors", obj: @opinion %>
       </div>
-      <div class="card">
+      <div class="card p-1 py-2 mt-4">
         <%= render 'opinions/form'%>
-        <div class="card text-muted p-3 mt-3 mx-2 border-0">
+        <div class="card text-muted mt-3 border-0">
           <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets from <%= @user.full_name %></h5>
-          <%= render 'opinions/list'%>
+          <%= render 'opinions/list', obj: @user.opinions%>
         </div>
       </div>
     </div>
-    <div class="col-sm-4 text-muted">
+    <div class="col-sm-3 text-muted">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 ">

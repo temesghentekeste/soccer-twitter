@@ -1,3 +1,5 @@
 <% user.following.each do |following|%>
-  <%= render 'profile_info_main', user: following%>
+  <div class="text-center">
+    <%= render 'profile_info_main', user: following%>
+  </div>
 <% end %>
