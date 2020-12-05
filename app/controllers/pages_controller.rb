@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def profile 
     @user = User.includes(:opinions).find_by(username: params[:username])
+    impressionist(@user)
     @following = Following.new
   end
 

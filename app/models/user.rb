@@ -28,6 +28,8 @@ class User < ApplicationRecord
 
   has_many :votes
 
+  is_impressionable
+  
   def follow(other)
     active_followings.create!(followed_id: other.id)
   end
