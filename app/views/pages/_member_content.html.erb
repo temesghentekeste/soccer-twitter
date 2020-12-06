@@ -26,6 +26,12 @@
         <i class="fas fa-user-circle mx-2"></i>
         <%= link_to 'PROFILE', profile_path(current_user.username), class: 'nav-link nav-link-custom' %>        
       </div>
+
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-user-circle mx-2"></i>
+        <%= link_to 'STATISTICS', stats_path(current_user.username), class: 'nav-link nav-link-custom' %>        
+      </div>
+
       <div class="user-action-link d-flex align-items-center">
         <i class="fas fa-power-off mx-2"></i>
         <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-custom' %>        

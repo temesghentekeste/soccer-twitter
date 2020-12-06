@@ -18,7 +18,18 @@ require("channels")
 require("bootstrap")
 import "../stylesheets/application";
 require("../includes/vote.js");
+const Chart = require('chart.js');
+require("../includes/stats.js");
 document.addEventListener("load", function() {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="popover"]').popover()
+    })
+
+})
+
+$(function () {
+    console.log('Chart...', Chart);
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
         $('[data-toggle="popover"]').popover()

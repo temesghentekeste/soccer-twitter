@@ -1,0 +1,27 @@
+ <div class="col-sm-9 border-right py-3">
+    <h2 class="font-weight-bolder font-weight-bold text-muted">STATISTICS</h2>
+</div>
+
+<div class="row text-success font-weight-bold mt-4 p-4">
+  <div class="col-md-6 ">
+    <div class="card">
+      <div class="card-header">
+        7 Day View
+      </div>
+      <div class="card-body">
+        <canvas id="page-views" width="400" height="400" data-labels="<%= @count_by_date.keys %>" data-data="<%= @count_by_date.values %>"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        7 Day Unique View
+      </div>
+      <div class="card-body">
+        <canvas id="unique-page-views" width="400" height="400" data-labels="<%= @uniq_count_by_date.keys %>" data-data="<%= @uniq_count_by_date.values %>"></canvas>
+
+      </div>
+    </div>
+  </div>
+</div>

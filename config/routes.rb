@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show]
   get 'profile/:username', to: 'pages#profile', as: :profile
+  get 'dashboard/:username', to: 'stats#index', as: :stats
 
   resources :followings
 end
