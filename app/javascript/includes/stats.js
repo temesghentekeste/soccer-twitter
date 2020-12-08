@@ -3,7 +3,10 @@ $(function () {
   const parseLabels = labels => {
     labels = labels.slice(1,-1);
     labels = labels.split(',')
-    labels = labels.filter((a,i)=>i%2===1).map(a=>a.trim());
+    labels = labels.map(element => {
+      element = element.slice(1,-1)
+      return element.replace(/^"?(.+?)"?$/,'$1');
+    });
     return labels;
   }
 
@@ -15,7 +18,6 @@ $(function () {
 
   var ctx = document.getElementById('page-views');
   let labels = parseLabels(ctx.dataset.labels)
-  
   let data = parseData(ctx.dataset.data);
 
   var myChart = new Chart(ctx, {
