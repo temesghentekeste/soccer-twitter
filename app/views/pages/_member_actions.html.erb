@@ -1,0 +1,29 @@
+<div class="user-action-link d-flex align-items-center">
+          <i class="fas fa-home mx-2"></i>
+        <%= link_to 'HOME', home_path, class: 'nav-link nav-link-custom' %>        
+      </div>
+
+      <div class="user-action-link d-flex align-items-center">
+        <i class="mx-2 fa fa-hashtag"></i>
+        <%= link_to 'DISCOVER', discover_path, class: 'nav-link nav-link-custom' %>        
+      </div>
+
+       <div class="user-action-link d-flex align-items-center">
+        <i class="mx-2 fas fa-at"></i>
+        <%= link_to 'CONNECT', connect_path, class: 'nav-link nav-link-custom' %>        
+      </div>
+
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-user-circle mx-2"></i>
+        <%= link_to 'PROFILE', profile_path(current_user.username), class: 'nav-link nav-link-custom' %>        
+      </div>
+
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-user-circle mx-2"></i>
+        <%= link_to 'STATISTICS', stats_path(current_user.username), class: 'nav-link nav-link-custom' %>        
+      </div>
+
+      <div class="user-action-link d-flex align-items-center">
+        <i class="fas fa-power-off mx-2"></i>
+        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-custom' %>        
+      </div>

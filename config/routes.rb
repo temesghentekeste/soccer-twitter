@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root to: "pages#index"
   get '/home', to: 'pages#home'
+  get '/discover', to: 'pages#discover'
+  get '/connect', to: 'pages#connect'
   resources :opinions
   post "opinion/vote" => "votes#create"
 

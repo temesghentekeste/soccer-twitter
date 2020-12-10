@@ -11,17 +11,26 @@ class PagesController < ApplicationController
     
   end
 
+  def discover
+
+  end
+
+  def connect 
+    @users = User.all.order(created_at: :desc)
+  end
+  
   def profile 
     @user = User.includes(:opinions).find_by(username: params[:username])
     impressionist(@user) unless @user == current_user
     @following = Following.new
   end
-
+  
   private 
   def set_initial_values
     if user_signed_in?
+      @opinions = Opinion.all.includes(:author)
+      # @opinions = current_user.opinions.includes(:author).limit(10)
       @opinion = Opinion.new
-      @opinions = current_user.opinions.includes(:author).limit(10)
       @to_follow = User.where.not(id: current_user.id)- current_user.following 
     end
   end
