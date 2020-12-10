@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def member_or_guest_content
     if user_signed_in?
-      render '/pages/member_content'
+      render '/pages/home'
     else
       render '/pages/guest_content'
     end

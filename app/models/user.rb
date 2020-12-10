@@ -49,4 +49,6 @@ class User < ApplicationRecord
   def downvoted_opinion_ids
     self.votes.where(upvote: false).pluck(:opinion_id)
   end
+
+ 
 end

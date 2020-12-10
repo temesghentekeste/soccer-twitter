@@ -1,10 +1,26 @@
 class PageView < Impression
+
+  class << self
+    def current_user=(user)
+      Thread.current[:current_user] = user
+    end
+
+    def current_user
+      Thread.current[:current_user]
+    end
+  end
+
   scope :for_type, -> (type) do
     where(impressionable_type: type)
   end
+
+  scope :for_user, -> (id) do
+    where(impressionable_id: id)
+  end
   
   scope :for_date_range, -> (start_date, end_date) do
-    where(created_at: start_date.beginning_of_day..end_date.end_of_day)
+    current_user_id = current_user.id
+    for_user(current_user_id).where(created_at: start_date.beginning_of_day..end_date.end_of_day)
   end
 
   def self.count_by_date(start_date, end_date)
@@ -19,7 +35,7 @@ class PageView < Impression
   end
   
   def self.uniq_count_by_date(start_date, end_date)
-    results = for_date_range(start_date, end_date).select(:ip_address)
+    results = for_date_range(start_date, end_date).select(:user_id)
     .distinct
     .group('date(created_at)').count
     

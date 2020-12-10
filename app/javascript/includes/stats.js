@@ -38,7 +38,7 @@ $(function () {
   data = parseData(ctx.dataset.data);
 
   myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: labels,
         datasets: [{

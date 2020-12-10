@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
   before_action :set_initial_values
 
-
+ 
   def index 
     
   end
@@ -25,4 +25,7 @@ class PagesController < ApplicationController
       @to_follow = User.where.not(id: current_user.id)- current_user.following 
     end
   end
+
+ 
+
 end
