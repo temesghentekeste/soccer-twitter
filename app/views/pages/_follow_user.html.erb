@@ -1,0 +1,9 @@
+<div class="user-follow d-flex justify-content-between mb-4">
+  <%= render 'profile_info_main', user: @user %> 
+  <div  class= "align-self-center mr-5">
+     <%= form_for @following do |form| %>
+      <%= form.hidden_field :followed_id, value: @user.id %>
+      <%= form.submit "Follow", class: 'btn-custom text-uppercase '%>
+     <% end %>
+  </div>
+</div>

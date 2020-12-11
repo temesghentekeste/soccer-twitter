@@ -1,0 +1,6 @@
+<%= link_to profile_path(follow.username), :class => "text-decoration-none text-muted" do %>
+  <div class="user-info">
+    <%= render 'profile_info_full', user: follow %> 
+  </div>
+<% end %>
+

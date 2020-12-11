@@ -1,0 +1,91 @@
+<div class="col-sm-9 py-3 mb-4">
+  <h2 class="font-weight-bolder font-weight-bold text-muted text-uppercase">STATISTICS</h2>
+  <div class="underline underline_normal"></div>
+
+</div>
+
+<div class="col-sm-9 px-4">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">PROFILE VIEWS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
+  <div class="col-md-6 ">
+    <div class="card">
+      <div class="card-header">
+        7 Day Profile View
+      </div>
+      <div class="card-body">
+        <canvas id="page-views" width="400" height="400" data-labels="<%= @count_by_date.keys %>" data-data="<%= @count_by_date.values %>"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        7 Day Unique Profile View
+      </div>
+      <div class="card-body">
+        <canvas id="unique-page-views" width="400" height="400" data-labels="<%= @uniq_count_by_date.keys %>" data-data="<%= @uniq_count_by_date.values %>"></canvas>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-9 px-4 mt-5">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">VOTES PROGRESS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        30 Day  Upvotes Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@upvotes) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        30 Day Downvotes Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@downvotes) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-9 px-4 mt-5">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">FOLLOWINGS PROGRESS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        30 Day  Followers Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@followers) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        30 Day Followings Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@following) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

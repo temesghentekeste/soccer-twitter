@@ -1,2 +1,0 @@
-<h1>Welcome</h1>
-<p><%= link_to 'Sign Out', destroy_user_session_path, method: :delete%></p>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   
   validates :full_name, presence: true, length: { maximum: 50 }
+  default_scope { order(created_at: :desc) }
 
   has_one_attached :photo, dependent: :destroy
   has_one_attached :cover_image, dependent: :destroy
@@ -25,6 +26,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_followings, source: :followed
   has_many :followers, through: :passive_followings, source: :follower
 
+  has_many :votes
+
+  is_impressionable
+  
   def follow(other)
     active_followings.create!(followed_id: other.id)
   end
@@ -36,4 +41,16 @@ class User < ApplicationRecord
   def following?(other)
     following.include?(other)
   end
+
+  def upvoted_opinion_ids
+    self.votes.where(upvote: true).pluck(:opinion_id)
+  end
+
+  def downvoted_opinion_ids
+    self.votes.where(upvote: false).pluck(:opinion_id)
+  end
+
+  paginates_per 2
+
+ 
 end

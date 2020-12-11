@@ -1,0 +1,11 @@
+<div class="user-info p-3  d-flex align-items-center justify-content-around">
+    <%= user_avatar(user.id) %>   
+    <div class="ml-2 pt-2 mr-auto">
+        <p class="mt-1 mb-0 font-weight-bold text-muted"><%= user.full_name%></p>
+        <p class="mt-0 text-muted">@<%= user.username%></p>
+    </div>
+</div>
+<div class="px-2 py-0 d-flex justify-content-between border-bottom pb-3">
+    <span>Followers: <%= user.followers.count %></span>
+    <span>Following: <%= user.following.count %></span>
+</div>

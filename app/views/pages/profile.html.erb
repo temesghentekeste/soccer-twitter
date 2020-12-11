@@ -1,0 +1,67 @@
+<div class="container-fluid profile-container">
+  <div class="row">
+    <div class="col-sm-9 p-0">
+      <div class="profile-banner mb-0">
+        <%= user_banner(@user.id) %> 
+        <%= follow_user_action @user%>  
+      </div>
+    </div>
+    <div class="col-sm-3 pt-2 sticky-profile bg-secondary">
+      <%= render 'profile_info_banner', user: @user%>
+      <div class="following d-flex justify-content-around text-center py-4 text-white font-weight-bold">
+        <div class="following-count mr-2 ">
+          <span class="large-font d-block"><%= @user.opinions.count %></span> 
+          <span>Tweets</span> 
+        </div>
+        <div class="followers-count">
+          <span class="large-font d-block"><%= @user.following.count %></span> 
+          <span>Following</span> 
+        </div>
+
+        <div class="followers-count">
+          <span class="large-font d-block"><%= current_user.followers.count %></span> 
+          <span>Followers</span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid main-home">
+  <div class="row py-0 my-0">
+    <div class="col-sm-9 border-right opinion-body <%= opinion_profile @user %>">
+      <div class="ml-">
+        <%= render "shared/errors", obj: @opinion %>
+      </div>
+      <div class="card p-1 py-2 tweet-form <%= following_profile @user %> ">
+        <%= render 'opinions/form'%>
+        <div class="card text-muted mt-3 border-0">
+          <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets from <%= @user.full_name %></h5>
+          <%= render 'opinions/list', obj: @user.opinions %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 text-muted border-top follower-following">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 ">
+            <nav class='mt-4'>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Followers</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Following</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <%= followers @user%>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <%= followings @user%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

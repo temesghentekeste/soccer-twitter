@@ -1,0 +1,39 @@
+<div class="home-content ml-3">
+  <div class="row top-home text-muted text-uppercase justify-content-between">
+    <div class="col-sm-9  <%= border_right? %> py-3">
+      <h5 class="font-weight-bolder">Soccer Twitter</h5>
+      <div class="underline underline_normal"></div>
+    </div>
+    <div class=" col-sm-3 py-3 px-3">
+      <h6 class=" font-weight-bold">Who To Follow</h6>
+      <div class="underline underline_normal"></div>
+
+    </div>
+  </div>
+
+  <div class="main-home">
+   
+      <div class="row py-0 my-0">
+        <div class="col-sm-9 border-right opinion-body mt-0">
+          <div class="ml-5">
+            <%= render "shared/errors", obj: @opinion %>
+          </div>
+          <div class="card tweet-form_home">
+            <%= render 'opinions/form'%>
+            <div class="card text-muted p-3 mt-3 mx-2 border-0">
+              <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets</h5>
+              <%= render 'opinions/list', obj: @opinions%>
+              <div class="text-center d-flex justify-content-center my-3">
+                  <%= paginate @opinions %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 text-muted border-left">
+          <% @to_follow.each do |follow| %>
+            <%= render 'follow_user_with_link', follow: follow%>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

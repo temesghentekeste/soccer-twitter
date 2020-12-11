@@ -1,0 +1,9 @@
+<div class="user-follow d-flex justify-content-between">
+  <%= render 'profile_info_main', user: @user %> 
+  <div  class= "align-self-center mr-5">
+    <%= button_to following_path(id: following.id), method: :delete, :class => 'btn-custom btn-custom_following text-uppercase' do %>
+      <span>Following</span> 
+    <% end %>
+
+  </div>
+</div>

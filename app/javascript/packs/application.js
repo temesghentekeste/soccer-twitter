@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -17,9 +17,40 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 require("bootstrap")
 import "../stylesheets/application";
-document.addEventListener("turbolinks:load", function() {
+import toastr from 'toastr';
+require("../includes/vote.js");
+require("chartkick")
+const Chart = require('chart.js');
+require("../includes/stats.js");
+document.addEventListener("load", function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
         $('[data-toggle="popover"]').popover()
     })
+
+})
+
+$(function () {
+    console.log('Chart...', Chart);
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="popover"]').popover()
+    })
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    global.toastr = toastr;
 })
