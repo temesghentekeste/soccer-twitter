@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     if current_user
-      PageView.current_user = current_user
+      ApplicationRecord.current_user = current_user
     end
   end
 

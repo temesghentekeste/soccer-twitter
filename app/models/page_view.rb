@@ -1,15 +1,5 @@
 class PageView < Impression
 
-  class << self
-    def current_user=(user)
-      Thread.current[:current_user] = user
-    end
-
-    def current_user
-      Thread.current[:current_user]
-    end
-  end
-
   scope :for_type, -> (type) do
     where(impressionable_type: type)
   end
@@ -19,8 +9,8 @@ class PageView < Impression
   end
   
   scope :for_date_range, -> (start_date, end_date) do
-    
-    for_user(current_user.id).where(created_at: start_date.beginning_of_day..end_date.end_of_day)
+    id = ApplicationRecord.current_user.id
+    for_user(id).where(created_at: start_date.beginning_of_day..end_date.end_of_day)
   end
 
   def self.count_by_date(start_date, end_date)

@@ -1,17 +1,5 @@
 class FollowingView < Following
 
-  class << self
-    def current_user=(user)
-      Thread.current[:current_user] = user
-    end
-
-    def current_user
-      Thread.current[:current_user]
-    end
-  end
-
- 
-
   scope :for_user, -> (field, id) do
     column_name = field.to_s
     where("#{column_name} = ?", id)
