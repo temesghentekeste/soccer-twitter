@@ -18,6 +18,7 @@ require("channels")
 require("bootstrap")
 import "../stylesheets/application";
 require("../includes/vote.js");
+require("chartkick")
 const Chart = require('chart.js');
 require("../includes/stats.js");
 document.addEventListener("load", function() {

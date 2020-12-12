@@ -19,8 +19,8 @@ class PageView < Impression
   end
   
   scope :for_date_range, -> (start_date, end_date) do
-    current_user_id = current_user.id
-    for_user(current_user_id).where(created_at: start_date.beginning_of_day..end_date.end_of_day)
+    
+    for_user(current_user.id).where(created_at: start_date.beginning_of_day..end_date.end_of_day)
   end
 
   def self.count_by_date(start_date, end_date)

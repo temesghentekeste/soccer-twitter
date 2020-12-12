@@ -25,3 +25,28 @@
     </div>
   </div>
 </div>
+
+<div class="row text-success font-weight-bold mt-4 p-4">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        30 Day  Followers Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@followers) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        30 Day Followings Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@following) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
