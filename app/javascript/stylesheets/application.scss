@@ -69,6 +69,11 @@ body {
   top: 30px;
 }
 
+.active-link {
+  background: map-get($theme-colors, 'primary');
+  font-weight: bold;
+}
+
 .btn-custom {
   transition: .3s ease-out;
   width: 100px;
@@ -162,6 +167,7 @@ body {
   color: white;
   text-decoration: none;
 }
+
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: map_get($theme-colors, 'dark');

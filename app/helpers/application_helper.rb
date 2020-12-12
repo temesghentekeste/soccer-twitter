@@ -26,4 +26,16 @@ module ApplicationHelper
       render '/pages/guest_content'
     end
   end
+
+  def active_class?(link_path)
+    'active-link' if current_page?(link_path)
+  end
+
+  def font_weight?(link_path)
+    'font-weight-bold' if current_page?(link_path)
+  end
+
+  def border_right?
+    controller.controller_name == "stats" ? '' : 'border-right'
+  end
 end

@@ -1,8 +1,11 @@
- <div class="col-sm-9 border-right py-3">
-    <h2 class="font-weight-bolder font-weight-bold text-muted">STATISTICS</h2>
+<div class="col-sm-9 py-3 mb-4">
+  <h2 class="font-weight-bolder font-weight-bold text-muted text-uppercase">STATISTICS</h2>
 </div>
 
-<div class="row text-success font-weight-bold mt-4 p-4">
+<div class="col-sm-9 px-4">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">PROFILE VIEWS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
   <div class="col-md-6 ">
     <div class="card">
       <div class="card-header">
@@ -26,113 +29,61 @@
   </div>
 </div>
 
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-secondary btn-block font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Page Views
-        </button>
-      </h5>
-    </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+<div class="col-sm-9 px-4 mt-5">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">VOTES PROGRESS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        30 Day  Upvotes Progress
+      </div>
       <div class="card-body">
-        <div class="row text-success font-weight-bold mt-4 p-4">
-          <div class="col-md-6 ">
-            <div class="card">
-              <div class="card-header">
-                7 Day Profile View
-              </div>
-              <div class="card-body">
-                <%= line_chart(@count_by_date) %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                7 Day Unique Profile View
-              </div>
-              <div class="card-body">
-                <%= line_chart(@uniq_count_by_date) %>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%= line_chart(@upvotes) %>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-info btn-block font-weight-bold collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Following Stats
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        <div class="row text-success font-weight-bold mt-4 p-4">
-          <div class="col-md-12 ">
-            <div class="card">
-              <div class="card-header">
-                30 Day  Followers Progress
-              </div>
-              <div class="card-body">
-                <%= line_chart(@followers) %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                30 Day Followings Progress
-              </div>
-              <div class="card-body">
-                <%= line_chart(@following) %>
-
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        30 Day Downvotes Progress
       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-primary btn-block font-weight-bold collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Upvotes/Downvotes Stats
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        <div class="row text-success font-weight-bold mt-4 p-4">
-          <div class="col-md-12 ">
-            <div class="card">
-              <div class="card-header">
-                30 Day  Upvotes Progress
-              </div>
-              <div class="card-body">
-                <%= line_chart(@upvotes) %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                30 Day Downvotes Progress
-              </div>
-              <div class="card-body">
-                <%= line_chart(@downvotes) %>
+        <%= line_chart(@downvotes) %>
 
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+<div class="col-sm-9 px-4 mt-5">
+  <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">FOLLOWINGS PROGRESS</h5>
+</div>
+<div class="row text-success font-weight-bold px-4 py-1">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        30 Day  Followers Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@followers) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        30 Day Followings Progress
+      </div>
+      <div class="card-body">
+        <%= line_chart(@following) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 

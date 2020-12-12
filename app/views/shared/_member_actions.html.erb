@@ -1,29 +1,29 @@
-<div class="user-action-link d-flex align-items-center">
-          <i class="fas fa-home mx-2"></i>
-        <%= link_to 'HOME', home_path, class: 'nav-link nav-link-custom' %>        
+      <div class="user-action-link d-flex align-items-center  <%= active_class?(home_path) %>">
+        <i class="fas fa-home mx-2"></i>
+        <%= link_to 'HOME', home_path, class: "nav-link nav-link-custom text-white #{font_weight?(home_path)}" %>        
       </div>
 
-      <div class="user-action-link d-flex align-items-center">
-        <i class="mx-2 fa fa-hashtag"></i>
-        <%= link_to 'DISCOVER', discover_path, class: 'nav-link nav-link-custom' %>        
+      <div class="user-action-link d-flex align-items-center  <%= active_class?(discover_path) %>">
+        <i class="mx-2 fa fa-hashtag "></i>
+        <%= link_to 'DISCOVER', discover_path, class: "nav-link nav-link-custom text-white #{font_weight?(discover_path)}" %>        
       </div>
 
-       <div class="user-action-link d-flex align-items-center">
+       <div class="user-action-link d-flex align-items-center  <%= active_class?(connect_path) %>">
         <i class="mx-2 fas fa-at"></i>
-        <%= link_to 'CONNECT', connect_path, class: 'nav-link nav-link-custom' %>        
+        <%= link_to 'CONNECT', connect_path, class: "nav-link nav-link-custom text-white #{font_weight?(connect_path)}" %>        
       </div>
 
-      <div class="user-action-link d-flex align-items-center">
+      <div class="user-action-link d-flex align-items-center  <%= active_class?(profile_path(current_user.username)) %>">
         <i class="fas fa-user-circle mx-2"></i>
-        <%= link_to 'PROFILE', profile_path(current_user.username), class: 'nav-link nav-link-custom' %>        
+        <%= link_to 'PROFILE', profile_path(current_user.username), class: "nav-link nav-link-custom text-white #{font_weight?(profile_path(current_user.username))}" %>         
       </div>
 
-      <div class="user-action-link d-flex align-items-center">
-        <i class="fas fa-user-circle mx-2"></i>
-        <%= link_to 'STATISTICS', stats_path(current_user.username), class: 'nav-link nav-link-custom' %>        
+      <div class="user-action-link d-flex align-items-center  <%= active_class?(stats_path(current_user.username)) %>">
+        <i class="fas fa-chart-bar mx-2"></i>
+        <%= link_to 'STATISTICS', stats_path(current_user.username), class: "nav-link nav-link-custom text-white #{font_weight?(stats_path(current_user.username))}" %>        
       </div>
 
       <div class="user-action-link d-flex align-items-center">
         <i class="fas fa-power-off mx-2"></i>
-        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-custom' %>        
+        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: "nav-link nav-link-custom text-white" %>  
       </div>
