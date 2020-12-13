@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   
   def profile 
     @user = User.includes(:opinions).find_by(username: params[:username])
-    impressionist(@user) unless @user == current_user
+    impressionist(@user) unless (@user == current_user || @user.nil?)
     @following = Following.new
   end
   
