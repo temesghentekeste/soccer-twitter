@@ -29,7 +29,6 @@ class PagesController < ApplicationController
   def set_initial_values
     if user_signed_in?
       @opinions = Opinion.all.includes(:author)
-      # @opinions = current_user.opinions.includes(:author).limit(10)
       @opinion = Opinion.new
       @to_follow = User.where.not(id: current_user.id)- current_user.following 
     end

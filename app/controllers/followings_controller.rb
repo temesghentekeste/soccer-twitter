@@ -5,7 +5,7 @@ class FollowingsController < ApplicationController
     followed = User.find(following.followed_id)
     if following.save
       flash[:notice] = "You have successfully followed #{followed.full_name}"
-      redirect_to request.referrer
+      redirect_to profile_path(followed.username)
     end
   end
   
@@ -14,7 +14,8 @@ class FollowingsController < ApplicationController
     followed = User.find(@following.followed_id)
     @following.destroy
     flash[:alert] = "You have successfully unfollowed #{followed.full_name}"
-    redirect_to request.referrer
+    redirect_to profile_path(followed.username)
+
 
   end
 
