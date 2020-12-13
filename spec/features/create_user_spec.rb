@@ -32,8 +32,8 @@ describe 'creating a new user' do
     attach_file('user_photo', File.absolute_path('./spec/support/assets/test-photo.jpeg'))
     attach_file('user_cover_image', File.absolute_path('./spec/support/assets/test-cover-image.jpg'))
     
-
     click_button 'Sign up'
+
     expect(current_path).to eq(home_path)
     expect(page).to have_text("Following")
     expect(page).to have_text("0")
