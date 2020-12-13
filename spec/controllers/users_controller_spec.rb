@@ -20,6 +20,7 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template(nil)
       expect(response).to have_http_status(302)
     end
+
   end
 
   describe 'GET #show' do
@@ -28,8 +29,9 @@ RSpec.describe UsersController, type: :controller do
       sign_in(@user)
       get :show, params: { id: @user.id }
 
-      expect(response).to render_template('show')
-      expect(response).to have_http_status(200)
+      expect(response).to redirect_to(profile_path(@user.username))
+
+      expect(response).to have_http_status(302)
     end
   end
 end
