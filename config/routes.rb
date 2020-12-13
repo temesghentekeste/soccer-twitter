@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get 'dashboard/:username', to: 'stats#index', as: :stats
 
   resources :followings
+
 end

@@ -1,5 +1,9 @@
 class OpinionsController < ApplicationController
-  def index; end
+  before_action :authenticate_user!
+
+  def index
+    redirect_to profile_path(current_user.username)
+  end
 
   def new
     @opinion = current_user.opinions.build
