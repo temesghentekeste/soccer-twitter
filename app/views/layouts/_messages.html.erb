@@ -1,6 +1,6 @@
-<div class="container mt-0">
+<div class="container mt-0 flash-messages">
  <div class="row m-0">
-    <div class="col-12 mt-2 ">
+    <div class="col-12 mt-0 ">
       <% flash.each do |name, msg| %>
           <% if name == 'alert' && msg[0] == "Text can't be blank" %>
             <% msg = "Your soccer tweet can't be blank"%>

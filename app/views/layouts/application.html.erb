@@ -20,7 +20,8 @@
   </head>
 
   <body>
-    <%= member_or_guest_homepage %>
+      <%= render 'layouts/messages' unless current_page?(home_path)%> 
+      <%= member_or_guest_homepage%>
   </body>
 </html>
 
