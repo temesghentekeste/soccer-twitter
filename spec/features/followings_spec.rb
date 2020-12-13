@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'following feature', type: :feature do
   before do
-    # create_user('johndoe', 'johndoe@email.com')
     create_user('janedoe', 'janedoe@email.com')
     @follower = User.first
     @followed = User.last
