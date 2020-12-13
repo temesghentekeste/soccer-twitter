@@ -8,9 +8,9 @@
         <%= link_to 'DISCOVER', discover_path, class: "nav-link nav-link-custom text-white #{font_weight?(discover_path)}" %>        
       </div>
 
-       <div class="user-action-link d-flex align-items-center  <%= active_class?(connect_path) %>">
+       <div class="user-action-link d-flex align-items-center  <%= active_class?(users_path) %>">
         <i class="mx-2 fas fa-at"></i>
-        <%= link_to 'CONNECT', connect_path, class: "nav-link nav-link-custom text-white #{font_weight?(connect_path)}" %>        
+        <%= link_to 'CONNECT', users_path, class: "nav-link nav-link-custom text-white #{font_weight?(users_path)}" %>        
       </div>
 
       <div class="user-action-link d-flex align-items-center  <%= active_class?(profile_path(current_user.username)) %>">

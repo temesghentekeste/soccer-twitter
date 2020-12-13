@@ -1,0 +1,30 @@
+<section class="container">
+  <div class="row">
+    <div class="col-sm-9 px-4 mt-5">
+      <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase">All Soccer Tweeter Users</h5>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <% @users.each do |user| %>
+        <%= link_to profile_path(user.username), :class => "text-decoration-none" do %>
+          <div class="user-info p-3  d-flex align-items-center justify-content-around bg-secondary rounded-top">
+          <%= user_avatar(user.id) %>   
+          <div class="ml-2 pt-2 mr-auto">
+              <p class="mt-1 mb-0 font-weight-bold  text-white"><%= user.full_name%></p>
+              <p class="mt-0  text-white">@<%= user.username%></p>
+              <span class="text-white bg-dark d-block p-2 rounded-pill"><%= pluralize(user.opinions.count, "Tweet") %></span>
+
+          </div>
+          </div>
+          <div class="px-2 py-0 d-flex justify-content-between border-bottom p-3 bg-dark mb-3">
+              <span class=" text-white">Followers: <%= user.followers.count %></span>
+              <span class=" text-white">Following: <%= user.following.count %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+</section>
