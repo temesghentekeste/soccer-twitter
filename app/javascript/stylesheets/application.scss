@@ -30,11 +30,32 @@ body {
 }
 
 .left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin-right: 2rem;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-section {
+  margin-left: 15rem;
+  overflow-x: hidden;
+  
 }
 
 .top-nav {
+  position: fixed;
+  width: 84%;
   height: 80px;
+  z-index: 900;
+  margin-left: 0.3rem;
+  overflow-x: hidden;
+}
+
+.main-content {
+  margin-top: 5rem;
 }
 
 .underline {
@@ -51,7 +72,7 @@ body {
 
 .flash-messages {
   position: relative;
-  top: 2rem;
+  top: 1rem;
   z-index: 1;
 }
 
@@ -70,6 +91,10 @@ body {
 
 .profile-container {
   margin-top: -0.5rem;
+}
+
+.profile-edit {
+  position: relative;
 }
 
 .votes-container {
@@ -132,6 +157,7 @@ body {
 }
 
 .profile-banner {
+  margin-top: .5rem;
   position: relative;
   margin-bottom: 2rem;
   .cover-image {

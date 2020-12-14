@@ -2,7 +2,7 @@ module PagesHelper
   def user_avatar(user_id)
     user = User.find(user_id)
     if user.photo.attached?
-      image_tag user.photo, class: 'profile-photo'
+      render 'shared/profile_info', user: user
     else
       image_tag 'default_user_photo.png', class: 'profile-photo'
     end
@@ -11,7 +11,9 @@ module PagesHelper
   def user_banner(user_id)
     user = User.find(user_id)
     if user.cover_image.attached?
-      image_tag user.cover_image, class: 'cover-image'
+      # image_tag user.cover_image, class: 'cover-image'
+      render 'shared/profile_cover_image', user: user
+
     else
       image_tag 'default_cover_image.jpeg', class: 'cover-image'
     end
