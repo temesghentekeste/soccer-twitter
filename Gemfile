@@ -35,6 +35,7 @@ gem 'impressionist'
 gem 'chartkick'
 gem 'dotenv-rails'
 gem 'cloudinary'
+gem 'toastr-rails'
 
 
 group :development, :test do

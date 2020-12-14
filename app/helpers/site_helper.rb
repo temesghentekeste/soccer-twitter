@@ -7,4 +7,6 @@ module SiteHelper
       render 'layouts/alert'
     end
   end
+
+  
 end
