@@ -11,7 +11,9 @@
     </div>
 
     <div class="col-sm-5 mt-2 signin-form p-4">
-   
+      <% if controller_name == 'pages'%>
+        <%= render 'guest_carousel'%>
+      <% end %>
       <%= yield %>
     </div>
   </div>
