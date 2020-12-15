@@ -1,18 +1,20 @@
-$body-bg: #E7ECEF;
+$body-bg: #e7ecef;
 $custom-btn: #e2eff7;
 
 $theme-colors: (
-  "primary": #1DA1F2,
+  "primary": #1da1f2,
   "secondary": #213246,
   "success": #015668,
-  "info": #0F81C7,
+  "info": #0f81c7,
   "warning": rgb(12, 140, 144),
   "danger": #e24040,
   "light": #ececec,
   "dark": #6c8297
 );
+
 @import '~bootstrap/scss/bootstrap';
 @import "toastr";
+
 body {
   font-family: 'Lato', sans-serif;
 }
@@ -42,7 +44,6 @@ body {
 .main-section {
   margin-left: 15rem;
   overflow-x: hidden;
-  
 }
 
 .top-nav {
@@ -58,12 +59,41 @@ body {
   margin-top: 5rem;
 }
 
+.top-home {
+  margin-top: 1rem;
+}
+
+.main-home {
+  margin-top: 0;
+}
+
+.tweet-form {
+  margin-top: 8rem;
+  
+  &_home {
+    margin-top: -4rem;
+  }
+  
+  &_following {
+    margin-top: 13rem;
+  }
+}
+
+.follower-following {
+  margin-top: 12rem;
+}
+
 .underline {
   width: 12rem;
   height: 0.25rem;
   background: map_get($theme-colors, 'dark');
   margin-left: auto;
   margin-right: auto;
+
+  &_normal {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .page-heading {
@@ -72,7 +102,7 @@ body {
 
 .flash-messages {
   position: relative;
-  top: .5rem;
+  top: 0.5rem;
   z-index: 1000;
 }
 
@@ -86,7 +116,8 @@ body {
   color: map_get($theme-colors, 'dark');
 }
 
-.alert-success-custom, .bg-primary-vote {
+.alert-success-custom,
+.bg-primary-vote {
   background: #5cb85c;
 }
 
@@ -104,7 +135,7 @@ body {
 }
 
 .upvote-text {
-  left: 0px;
+  left: 0;
   top: 30px;
 }
 
@@ -119,7 +150,7 @@ body {
 }
 
 .btn-custom {
-  transition: .3s ease-out;
+  transition: all 0.2s ease-in-out;
   width: 100px;
   background: #fff;
   border-color: map_get($theme-colors, 'primary');
@@ -133,7 +164,7 @@ body {
   }
 
   &_following {
-    transition: .3s ease-out;
+    transition: 0.3s ease-out;
     background: map_get($theme-colors, 'primary');
     width: 110px;
     border: none;
@@ -142,33 +173,43 @@ body {
 
   &_following:hover {
     background: map_get($theme-colors, 'danger');
-    border-color: none;
+    border: none;
 
     span {
-      display:none;
+      display: none;
     }
 
-    &:before {
-      content:"unfollow";
+    &::before {
+      content: "unfollow";
       color: #fff;
     }
   }
+}
 
-
+.sticky-profile {
+  background-color: map_get($theme-colors, 'info');
+  position: fixed;
+  top: 32px;
+  right: -58px;
+  margin-top: 3rem;
+  z-index: 1;
+  height: 236px;
 }
 
 .profile-banner {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   position: fixed;
   margin-left: 0;
   top: 72px;
   left: 244px;
   width: 63%;
   z-index: 999;
+
   .cover-image {
-    width: 100%;
+    width: 99%;
     height: 237px;
   }
+
   .user-follow {
     width: 100%;
     position: absolute;
@@ -177,7 +218,8 @@ body {
   }
 }
 
-.upvote, .downvote {
+.upvote,
+.downvote {
   display: block;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -210,27 +252,33 @@ body {
   }
 }
 
-.nav-link-custom:hover,
-.user-action-link:hover {
-  background-color: map_get($theme-colors, 'primary');
-  color: white;
-  text-decoration: none;
+.nav-link-custom,
+.user-action-link {
+  transition: all 0.2s ease-in-out;
 }
 
+.user-action-link:hover {
+  background-color: map_get($theme-colors, 'success');
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transform: scale(1.1);
+}
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: map_get($theme-colors, 'dark');
+  font-size: 20px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: map_get($theme-colors, 'dark');
   background-color: transparent;
   border-color: transparent transparent #3f3e3e;
   border-bottom: 4px solid !important;
   font-size: 20px;
   font-weight: bold;
-}
-
-.nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  color: map_get($theme-colors, 'dark');
-  font-size: 20px;
 }

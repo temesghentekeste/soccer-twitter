@@ -36,6 +36,6 @@ module ApplicationHelper
   end
 
   def border_right?
-    controller.controller_name == "stats" ? '' : 'border-right'
+    controller.controller_name == 'stats' ? '' : 'border-right'
   end
 end

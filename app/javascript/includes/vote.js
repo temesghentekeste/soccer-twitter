@@ -1,5 +1,4 @@
 $(function () {
-  console.log('JQuery is loading properly');
 
  $('.vote').on("click", ".upvote, .downvote",  function() {
    var opinion_id = $(this).parent().data("id"),

@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_current_user
-    if current_user
-      ApplicationRecord.current_user = current_user
-    end
+    ApplicationRecord.current_user = current_user if current_user
   end
-
 end

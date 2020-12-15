@@ -11,7 +11,6 @@ module PagesHelper
   def user_banner(user_id)
     user = User.find(user_id)
     if user.cover_image.attached?
-      # image_tag user.cover_image, class: 'cover-image'
       render 'shared/profile_cover_image', user: user
 
     else
@@ -20,7 +19,7 @@ module PagesHelper
   end
 
   def followers(user)
-    if user.followers.count > 0
+    if user.followers.count.positive?
       render 'pages/followers', user: user
     else
       render 'pages/no_followers'
@@ -28,7 +27,7 @@ module PagesHelper
   end
 
   def followings(user)
-    if user.following.count > 0
+    if user.following.count.positive?
       render 'pages/followings', user: user
     else
       render 'pages/no_followings'
@@ -39,9 +38,13 @@ module PagesHelper
     followings = current_user.following
     if user != current_user && !followings.include?(user)
       render 'pages/follow_user', user: user
-    elsif followings.include? (user)
+    elsif followings.include? user
       following = Following.find_by(follower_id: current_user.id, followed_id: @user.id)
       render 'pages/unfollow_user', { user: user, following: following }
     end
+  end
+
+  def following_profile(user)
+    'tweet-form_following' unless user == current_user
   end
 end

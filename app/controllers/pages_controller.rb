@@ -2,38 +2,29 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
   before_action :set_initial_values
 
- 
-  def index 
-    
-  end
+  def index; end
 
-  def home
-    
-  end
+  def home; end
 
-  def discover
+  def discover; end
 
-  end
-
-  def connect 
+  def connect
     @users = User.all.order(created_at: :desc)
   end
-  
-  def profile 
+
+  def profile
     @user = User.includes(:opinions).find_by(username: params[:username])
-    impressionist(@user) unless (@user == current_user || @user.nil?)
+    impressionist(@user) unless @user == current_user || @user.nil?
     @following = Following.new
   end
-  
-  private 
+
+  private
+
   def set_initial_values
-    if user_signed_in?
-      @opinions = Opinion.all.includes(:author)
-      @opinion = Opinion.new
-      @to_follow = User.where.not(id: current_user.id)- current_user.following 
-    end
+    return unless user_signed_in?
+
+    @opinions = Opinion.all.includes(:author)
+    @opinion = Opinion.new
+    @to_follow = User.where.not(id: current_user.id) - current_user.following
   end
-
- 
-
 end

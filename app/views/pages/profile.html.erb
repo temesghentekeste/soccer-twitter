@@ -6,9 +6,9 @@
         <%= follow_user_action @user%>  
       </div>
     </div>
-    <div class="col-sm-3 pt-2">
-      <%= render 'profile_info_sub', user: @user%>
-      <div class="following d-flex justify-content-around text-center py-4 border-bottom text-muted">
+    <div class="col-sm-3 pt-2 sticky-profile bg-secondary">
+      <%= render 'profile_info_banner', user: @user%>
+      <div class="following d-flex justify-content-around text-center py-4 text-white font-weight-bold">
         <div class="following-count mr-2 ">
           <span class="large-font d-block"><%= @user.opinions.count %></span> 
           <span>Tweets</span> 
@@ -33,7 +33,7 @@
       <div class="ml-5">
         <%= render "shared/errors", obj: @opinion %>
       </div>
-      <div class="card p-1 py-2 mt-4">
+      <div class="card p-1 py-2 tweet-form <%= following_profile @user %> ">
         <%= render 'opinions/form'%>
         <div class="card text-muted mt-3 border-0">
           <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets from <%= @user.full_name %></h5>
@@ -41,11 +41,11 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-3 text-muted">
+    <div class="col-sm-3 text-muted border-top follower-following">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 ">
-            <nav>
+            <nav class='mt-4'>
               <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Followers</a>
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Following</a>

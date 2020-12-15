@@ -1,9 +1,9 @@
 module VoteHelper
-  def is_upvoted opinion 
-      user_signed_in? && current_user.upvoted_opinion_ids.include?(opinion.id) ? 'active' : ''
+  def upvoted?(opinion)
+    user_signed_in? && current_user.upvoted_opinion_ids.include?(opinion.id) ? 'active' : ''
   end
 
-  def is_downvoted opinion 
+  def downvoted?(opinion)
     user_signed_in? && current_user.downvoted_opinion_ids.include?(opinion.id) ? 'active' : ''
   end
 
@@ -11,7 +11,7 @@ module VoteHelper
     if score.zero?
       'success'
     elsif score.positive?
-      'primary-vote' 
+      'primary-vote'
     else
       'danger'
     end

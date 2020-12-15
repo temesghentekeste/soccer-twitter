@@ -1,5 +1,4 @@
 module SiteHelper
-  
   def flash_message(name)
     if name == 'notice'
       render 'layouts/notice'
@@ -7,6 +6,4 @@ module SiteHelper
       render 'layouts/alert'
     end
   end
-
-  
 end
