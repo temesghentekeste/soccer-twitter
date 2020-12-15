@@ -3,7 +3,6 @@ $(function () {
  $('.vote').on("click", ".upvote, .downvote",  function() {
    var opinion_id = $(this).parent().data("id"),
        is_upvote = $(this).hasClass("upvote");
-       console.log((`#vote-actions-${opinion_id} .score`), is_upvote);
 
    $.ajax({
      url: "/opinion/vote",

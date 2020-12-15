@@ -27,6 +27,10 @@ module ApplicationHelper
     end
   end
 
+  def render_home
+    render '/pages/home' if user_signed_in?
+  end
+
   def active_class?(link_path)
     'active-link' if current_page?(link_path)
   end
@@ -37,5 +41,9 @@ module ApplicationHelper
 
   def border_right?
     controller.controller_name == 'stats' ? '' : 'border-right'
+  end
+
+  def render_messages
+    render 'layouts/messages' if !current_page?(home_path) && !user_signed_in?
   end
 end

@@ -20,12 +20,7 @@
   </head>
 
   <body>
-   
-      <%#= render 'layouts/messages' unless (current_page?(home_path)) %> 
-      <% if !current_page?(home_path) && !user_signed_in? %>
-        <%= render 'layouts/messages'  %> 
-      <% end %>
-      
+      <%= render_messages %>
       <%= member_or_guest_homepage%>
   </body>
 </html>
