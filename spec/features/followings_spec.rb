@@ -13,7 +13,8 @@ feature 'following feature', type: :feature do
     visit profile_path(@followed.username)
     expect(current_path).to eq(profile_path(@followed.username))
     expect(page).to have_content('Follow')
-    click_on 'Follow'
+    find('.btn-custom').click
+
     expect(page).to have_content('Following')
   end
 
@@ -22,7 +23,8 @@ feature 'following feature', type: :feature do
     visit profile_path(@followed.username)
     expect(current_path).to eq(profile_path(@followed.username))
     expect(page).to have_content('Follow')
-    click_on 'Follow'
+    find('.btn-custom').click
+
     expect(page).to have_content('Following')
     find('.btn-custom_following').click
     expect(page).to have_content('Follow')

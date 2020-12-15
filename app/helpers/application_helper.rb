@@ -46,4 +46,8 @@ module ApplicationHelper
   def render_messages
     render 'layouts/messages' if !current_page?(home_path) && !user_signed_in?
   end
+
+  def get_cloudinary_name
+    ENV['CLOUD_NAME']
+  end
 end

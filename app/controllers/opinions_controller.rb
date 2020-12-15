@@ -10,12 +10,12 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    @opinion = current_user.opinions.build(opinion_params)
-    if @opinion.save
+    opinion = current_user.opinions.build(opinion_params)
+    if opinion.save
       flash[:notice] = 'Your soccer tweet was successfully created'
       redirect_to home_path
     else
-      redirect_to home_path, alert: @opinion.errors.full_messages
+      redirect_to home_path, alert: opinion.errors.full_messages
     end
   end
 

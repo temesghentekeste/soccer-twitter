@@ -10,10 +10,13 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = Following.find(params[:id])
-    followed = User.find(@following.followed_id)
-    @following.destroy
-    flash[:alert] = "You have successfully unfollowed #{followed.full_name}"
+    following = Following.find(params[:id])
+    followed = User.find(following.followed_id)
+    flash[:alert] = if following.destroy
+                      "You have successfully unfollowed #{followed.full_name}"
+                    else
+                      'Something went wrong'
+                    end
     redirect_to profile_path(followed.username)
   end
 
