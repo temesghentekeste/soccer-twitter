@@ -17,13 +17,15 @@
         <div class="col-sm-9 border-right opinion-body mt-0">
           <div class="ml-5">
             <%= render "shared/errors", obj: @opinion %>
-            
           </div>
           <div class="card tweet-form_home">
             <%= render 'opinions/form'%>
             <div class="card text-muted p-3 mt-3 mx-2 border-0">
               <h5 class="card-title py-2 font-weight-bold border-bottom">Soccer Tweets</h5>
               <%= render 'opinions/list', obj: @opinions%>
+              <div class="text-center d-flex justify-content-center my-3">
+                  <%= paginate @opinions %>
+              </div>
             </div>
           </div>
         </div>

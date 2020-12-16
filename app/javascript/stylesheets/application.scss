@@ -78,6 +78,16 @@ body {
   // margin-top: 12rem;
 }
 
+.users-container {
+  min-height: 80vh;
+}
+
+.footer {
+  height: 10vh;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
 .underline {
   width: 12rem;
   height: 0.25rem;
@@ -270,4 +280,39 @@ body {
   border-bottom: 4px solid !important;
   font-size: 20px;
   font-weight: bold;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #fff;
+  font-weight: bold;
+  background-color: map_get($theme-colors, 'primary');
+  border: 1px solid #346767;
+}
+
+.page-link:focus,
+.page-link:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: map_get($theme-colors, 'warning');
+  border-color: map_get($theme-colors, 'secondary');
+}
+
+.page-item.disabled .page-link {
+  color: #000;
+  pointer-events: none;
+  cursor: auto;
+  background-color: map_get($theme-colors, 'light');
+  border-color: map_get($theme-colors, 'secondary');
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: map_get($theme-colors, 'success');
+  border-color: #aeff5e;
 }

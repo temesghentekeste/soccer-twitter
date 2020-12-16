@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all.includes(:opinions)
+    @users = User.page params[:page]
+    @users = @users.includes(:opinions)
   end
 
   def show

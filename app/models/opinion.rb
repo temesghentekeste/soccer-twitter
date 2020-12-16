@@ -13,4 +13,7 @@ class Opinion < ApplicationRecord
     end
   end
 
+  paginates_per 3
+
+
 end

@@ -23,7 +23,8 @@ class PagesController < ApplicationController
   def set_initial_values
     return unless user_signed_in?
 
-    @opinions = Opinion.all.includes(:author)
+    @opinions = Opinion.page params[:page]
+    @opinions = @opinions.all.includes(:author)
     @opinion = Opinion.new
     @to_follow = User.where.not(id: current_user.id) - current_user.following
   end

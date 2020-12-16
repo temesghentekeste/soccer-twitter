@@ -50,5 +50,7 @@ class User < ApplicationRecord
     self.votes.where(upvote: false).pluck(:opinion_id)
   end
 
+  paginates_per 2
+
  
 end

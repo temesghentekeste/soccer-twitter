@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container users-container">
   <div class="row">
     <div class="col-sm-12 px-4 text-center mb-3">
       <h5 class="font-weight-bolder font-weight-bold text-muted text-uppercase page-heading">All Soccer Tweeters</h5>
@@ -27,5 +27,7 @@
       <% end %>
     </div>
   </div>
-  
+  <div class="text-center d-flex justify-content-center my-3">
+    <%= paginate @users %>
+  </div>
 </section>
