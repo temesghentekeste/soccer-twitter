@@ -16,22 +16,19 @@ RSpec.describe FollowingsController, type: :controller do
            }
          }
      end .to change { Following.count }.from(0).to(1)
-      expect(response).to redirect_to(profile_path @followed.username)
-      expect(response).to have_http_status(302)
     end
   end
 
   describe 'DELETE #destroy' do
-    it 'removes a following entry from database' do
-      @follower = FactoryBot.create(:user)
-      sign_in @follower
+    context 'removes a following entry from database' do
+      before do 
+        @follower = FactoryBot.create(:user)
+        sign_in @follower
 
-      @following = FactoryBot.create(:following)
-      expect { delete :destroy, params: { id: @following.id } }.to change { Following.count }.from(1).to(0)
-      @followed = User.find(@following.followed_id)
-      expect(response).to redirect_to(profile_path @followed.username)
-      expect(response).to have_http_status(302)
+        @following = FactoryBot.create(:following)
+        @followed = User.find(@following.followed_id)
+      end
+      it { expect { delete :destroy, params: { id: @following.id } }.to change { Following.count }.from(1).to(0) }
     end
   end
- 
 end

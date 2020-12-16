@@ -9,23 +9,15 @@ feature 'following feature', type: :feature do
   end
   
   it 'a user can follow another user' do
-    expect(current_path).to eq(home_path)
     visit profile_path(@followed.username)
-    expect(current_path).to eq(profile_path(@followed.username))
-    expect(page).to have_content('Follow')
     find('.btn-custom').click
-
     expect(page).to have_content('Following')
   end
 
   scenario 'a user can unfollow another user he/she follows' do
-    expect(current_path).to eq(home_path)
     visit profile_path(@followed.username)
-    expect(current_path).to eq(profile_path(@followed.username))
-    expect(page).to have_content('Follow')
     find('.btn-custom').click
 
-    expect(page).to have_content('Following')
     find('.btn-custom_following').click
     expect(page).to have_content('Follow')
 

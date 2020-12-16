@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:passive_followings).class_name('Following').with_foreign_key('followed_id') }
   end
   
-  describe 'invalid user if files are not attached' do
+  describe 'file attachements and user validty' do
 
     it 'invalid user with files not attached' do
       @user = User.new
@@ -47,9 +47,13 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to be true
     end
 
-    it 'attaches the uploaded file' do
+    it 'attaches the uploaded photo' do
       @user = FactoryBot.create(:user)
       expect(@user.photo).to be_attached
+    end
+
+    it 'attaches the uploaded cover image' do
+      @user = FactoryBot.create(:user)
       expect(@user.cover_image).to be_attached
     end
   end

@@ -2,36 +2,39 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe 'GET #index' do
-    it 'renders users listing view' do
-      @user = FactoryBot.create(:user)
-      sign_in(@user)
+    context 'renders users listing view' do
+      before do
+        @user = FactoryBot.create(:user)
+        sign_in(@user)
+        get :index
+      end
 
-      get :index
-
-      expect(response).to render_template('index')
-      expect(response).to have_http_status(200)
+      it { expect(response).to render_template('index') }
+      it { expect(response).to have_http_status(200) }
     end
 
-    it 'renders nil if user is not signed in' do
-      @user = FactoryBot.create(:user)
+    context 'renders nil if user is not signed in' do
+      before do 
+        @user = FactoryBot.create(:user)
+        get :index
+      end
 
-      get :index
-
-      expect(response).to render_template(nil)
-      expect(response).to have_http_status(302)
+      it { expect(response).to render_template(nil) }
+      it { expect(response).to have_http_status(302) }
     end
 
   end
 
   describe 'GET #show' do
-    it 'renders the user show page' do
-      @user = FactoryBot.create(:user)
-      sign_in(@user)
-      get :show, params: { id: @user.id }
+    context 'renders the user show page' do
+      before do
+        @user = FactoryBot.create(:user)
+        sign_in(@user)
+        get :show, params: { id: @user.id }
+      end
 
-      expect(response).to redirect_to(profile_path(@user.username))
-
-      expect(response).to have_http_status(302)
+      it { expect(response).to redirect_to(profile_path(@user.username)) }
+      it { expect(response).to have_http_status(302) }
     end
   end
 end

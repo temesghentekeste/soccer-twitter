@@ -10,7 +10,6 @@ feature 'user authentication', type: :feature do
       fill_in 'user_email', with: 'fakemail@fake.com'
       click_on 'Log in'
 
-      expect(current_path).to eq(new_user_session_path)
       expect(page).to have_content('Invalid Email or password.')
     end
 
@@ -22,7 +21,6 @@ feature 'user authentication', type: :feature do
         fill_in 'user_password', with: 'password'
         click_on 'Log in'
 
-        expect(current_path).to eq(home_path)
         expect(page).to have_content('Signed in successfully.')
       end
     end
