@@ -38,26 +38,12 @@ body {
 }
 
 .left-sidebar {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // z-index: 1;
-  // min-height: 100vh;
-  // overflow-x: hidden;
-}
-
-.main-section {
-  // margin-left: 15rem;
-  // overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .top-nav {
   width: 100%;
   height: 80px;
-}
-
-.main-content {
-  // margin-top: 5rem;
 }
 
 .top-home {
@@ -66,22 +52,6 @@ body {
 
 .main-home {
   margin-top: 0;
-}
-
-.tweet-form {
-  // margin-top: 8rem;
-
-  &_home {
-    // margin-top: -4rem;
-  }
-
-  &_following {
-    // margin-top: 13rem;
-  }
-}
-
-.follower-following {
-  // margin-top: 12rem;
 }
 
 .users-container {
