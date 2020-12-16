@@ -27,4 +27,12 @@ module SiteHelper
   def alert_profile
     'alert-success-custom_profile' if user_signed_in? && !current_page?(home_path)
   end
+
+  def footer_links
+    if user_signed_in?
+      render 'layouts/member_footer_links'
+    else
+      render 'layouts/guest_footer_links'
+    end
+  end
 end

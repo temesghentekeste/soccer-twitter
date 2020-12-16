@@ -10,13 +10,14 @@ feature 'user authentication', type: :feature do
       fill_in 'user_email', with: 'fakemail@fake.com'
       click_on 'Log in'
 
+
       expect(page).to have_content('Invalid Email or password.')
     end
 
       scenario 'successful test with valid params' do
         create_user
         click_on 'LOG OUT'
-        click_on 'Sign in'
+        find('#sign-in-btn-1').click
         fill_in 'user_email', with: 'johndoe@someemail.com'
         fill_in 'user_password', with: 'password'
         click_on 'Log in'

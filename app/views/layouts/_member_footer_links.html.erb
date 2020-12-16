@@ -1,0 +1,13 @@
+<div class="footer-links">
+          <%= link_to 'Home', home_path, class: "nav-link nav-link-custom text-white #{font_weight?(home_path)}" %>        
+
+        <%= link_to 'Discover', discover_path, class: "nav-link nav-link-custom text-white #{font_weight?(discover_path)}" %>        
+
+        <%= link_to 'Connect', users_path, class: "nav-link nav-link-custom text-white #{font_weight?(users_path)}" %>        
+
+        <%= link_to 'Profile', profile_path(current_user.username), class: "nav-link nav-link-custom text-white #{font_weight?(profile_path(current_user.username))}" %>         
+
+        <%= link_to 'Statistics', stats_path(current_user.username), class: "nav-link nav-link-custom text-white #{font_weight?(stats_path(current_user.username))}" %>        
+
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link nav-link-custom text-white" %>  
+</div>

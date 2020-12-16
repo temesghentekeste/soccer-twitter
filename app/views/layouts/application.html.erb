@@ -20,9 +20,15 @@
   </head>
 
   <body>
-      <%= render_messages %>
-      <%= member_or_guest_homepage%>
-      <%= render 'layouts/footer_container' %>
+      <div class="container">
+        <%= render_messages %>
+      </div>
+      <div class="main-body-content">
+        <%= member_or_guest_homepage%>
+      </div>
+      <div class="footer">
+        <%= render 'layouts/footer_container' %>
+      </div>
   </body>
 </html>
 
