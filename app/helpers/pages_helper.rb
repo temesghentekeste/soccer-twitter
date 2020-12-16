@@ -47,4 +47,8 @@ module PagesHelper
   def following_profile(user)
     'tweet-form_following' unless user == current_user
   end
+
+  def opinion_profile(user)
+    'opinion-body_profile' if user == current_user
+  end
 end

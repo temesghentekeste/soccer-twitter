@@ -1,6 +1,6 @@
 <div class="container-fluid profile-container">
   <div class="row">
-    <div class="col-sm-9 banner-col p-0">
+    <div class="col-sm-9 p-0">
       <div class="profile-banner mb-0">
         <%= user_banner(@user.id) %> 
         <%= follow_user_action @user%>  
@@ -27,10 +27,10 @@
   </div>
 </div>
 
-<div class="container-fluid main-home mt-5">
+<div class="container-fluid main-home">
   <div class="row py-0 my-0">
-    <div class="col-sm-9 border-right opinion-body">
-      <div class="ml-5">
+    <div class="col-sm-9 border-right opinion-body <%= opinion_profile @user %>">
+      <div class="ml-">
         <%= render "shared/errors", obj: @opinion %>
       </div>
       <div class="card p-1 py-2 tweet-form <%= following_profile @user %> ">

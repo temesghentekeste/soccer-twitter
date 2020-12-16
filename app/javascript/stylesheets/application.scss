@@ -32,31 +32,26 @@ body {
 }
 
 .left-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  margin-right: 2rem;
-  min-height: 100vh;
-  overflow-x: hidden;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 1;
+  // min-height: 100vh;
+  // overflow-x: hidden;
 }
 
 .main-section {
-  margin-left: 15rem;
+  // margin-left: 15rem;
   overflow-x: hidden;
 }
 
 .top-nav {
-  position: fixed;
-  width: 84%;
+  width: 100%;
   height: 80px;
-  z-index: 900;
-  margin-left: 0.3rem;
-  overflow-x: hidden;
 }
 
 .main-content {
-  margin-top: 5rem;
+  // margin-top: 5rem;
 }
 
 .top-home {
@@ -68,19 +63,19 @@ body {
 }
 
 .tweet-form {
-  margin-top: 8rem;
+  // margin-top: 8rem;
 
   &_home {
-    margin-top: -4rem;
+    // margin-top: -4rem;
   }
 
   &_following {
-    margin-top: 13rem;
+    // margin-top: 13rem;
   }
 }
 
 .follower-following {
-  margin-top: 12rem;
+  // margin-top: 12rem;
 }
 
 .underline {
@@ -110,6 +105,10 @@ body {
   min-height: 100vh;
   padding: 1rem 2rem;
   margin-top: 6rem;
+
+  &_profile {
+    margin-top: 3rem;
+  }
 }
 
 .nav-link-custom {
@@ -119,6 +118,10 @@ body {
 .alert-success-custom,
 .bg-primary-vote {
   background: #5cb85c;
+}
+
+.alert-success-custom_profile {
+  margin: -2rem 0;
 }
 
 .profile-container {
@@ -186,27 +189,13 @@ body {
   }
 }
 
-.sticky-profile {
-  background-color: map_get($theme-colors, 'info');
-  position: fixed;
-  top: 32px;
-  right: -58px;
-  margin-top: 3rem;
-  z-index: 1;
-  height: 236px;
-}
-
 .profile-banner {
-  margin-top: 0.5rem;
-  position: fixed;
-  margin-left: 0;
-  top: 72px;
-  left: 244px;
-  width: 63%;
+  margin: 0;
+  width: 100%;
   z-index: 999;
 
   .cover-image {
-    width: 99%;
+    width: 100%;
     height: 237px;
   }
 

@@ -1,3 +1,3 @@
-  <% cloudname = get_cloudinary_name %>
+  <% cloudname = cloudinary_name %>
   
   <%= cl_image_tag(user.photo.key, secure: true, :class => "profile-photo", :cloud_name => cloudname)%>

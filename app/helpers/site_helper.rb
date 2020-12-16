@@ -23,4 +23,8 @@ module SiteHelper
   def render_welcome
     render 'welcome' if user_signed_in?
   end
+
+  def alert_profile
+    'alert-success-custom_profile' if user_signed_in? && !current_page?(home_path)
+  end
 end
